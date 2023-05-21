@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function WalkieTalkie() {
@@ -151,8 +152,10 @@ export default function WalkieTalkie() {
       </Head>
 
       <div className="flex flex-col gap-2 justify-center w-screen p-10 items-center">
-        <div className="text-3xl text-indigo-500 hover:scale-110 transition-all">
-          Walkie Talkie
+        <div className="flex flex-row gap-1 items-baseline hover:scale-110 transition-all">
+          <div className="text-3xl text-indigo-500">Walkie Talkie</div>
+
+          <Image src="/walkie-talkie.png" width={40} height={40} alt={""} />
         </div>
 
         <audio ref={audioRef} autoPlay />

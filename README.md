@@ -2,7 +2,7 @@
 A simple WebRTC based walkie talkie app(-ish).
 
 <p align="center">
-  <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/703f02a4-ec47-41b1-8526-f6953d1b6bb6">
+  <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/2065974b-ca8a-44c2-9b79-163ee7ab07fa">
 </p>
 
 ### TODO: write info

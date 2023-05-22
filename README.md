@@ -6,3 +6,9 @@ A simple WebRTC based walkie talkie app(-ish).
 </p>
 
 ### TODO: write info
+
+- [ ] Connect to server with a nickname
+- [ ] Select who to talk to
+- [ ] Allow multiple peers to connect and talk
+- [ ] Disable talk option if someone else is talking
+- [ ] Speech-to-text and text-to-speech

@@ -90,5 +90,5 @@ const httpServer = http.createServer();
 httpServer.on("upgrade", (req, socket, head) => {
   wss.handleUpgrade(req, socket, head, (ws) => wss.emit("connection", ws));
 });
-httpServer.listen(4002);
-console.log("HTTP server listening on port 4002");
+httpServer.listen(process.env.PORT || 4002);
+console.log("HTTP server listening on port {0}", process.env.PORT || "4002");

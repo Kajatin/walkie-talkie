@@ -1,8 +1,9 @@
-import * as http from "http";
 import * as WebSocket from "ws";
 
 let clients = {};
-const wss = new WebSocket.Server({ noServer: true });
+const port = Number(process.env.PORT) || 4002;
+const wss = new WebSocket.Server({ port: port });
+console.log(`HTTP server listening on port ${port}`);
 
 wss.on("connection", (ws) => {
   const connId = Math.random().toString(36).slice(2);
@@ -84,12 +85,3 @@ wss.on("connection", (ws) => {
     }
   });
 });
-
-// Serve wss://:443 and ws://:80
-const httpServer = http.createServer();
-httpServer.on("upgrade", (req, socket, head) => {
-  wss.handleUpgrade(req, socket, head, (ws) => wss.emit("connection", ws));
-});
-const port = process.env.PORT || 4002;
-httpServer.listen(port);
-console.log(`HTTP server listening on port ${port}`);

@@ -39,7 +39,7 @@ export default function WalkieTalkie() {
 
   useEffect(() => {
     peerConnection.current = new RTCPeerConnection();
-    socketRef.current = new WebSocket("ws://localhost:4002");
+    socketRef.current = new WebSocket("wss://walkie.rolandkajatin.com/ws/");
 
     socketRef.current.addEventListener("open", function (event) {
       console.log("Connected to server");

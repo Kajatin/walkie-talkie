@@ -23,6 +23,21 @@ export default function WalkieTalkie() {
   const [localStream, setLocalStream] = useState<MediaStream | null>(null);
 
   useEffect(() => {
+    const handleEnter = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        if (!newChat) return;
+
+        socketRef.current?.send(JSON.stringify({ chat: newChat }));
+        setNewChat("");
+      }
+    };
+    window.addEventListener("keydown", handleEnter);
+    return () => {
+      window.removeEventListener("keydown", handleEnter);
+    };
+  }, [newChat]);
+
+  useEffect(() => {
     peerConnection.current = new RTCPeerConnection();
     socketRef.current = new WebSocket("ws://localhost:4002");
 

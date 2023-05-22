@@ -5,6 +5,9 @@ A simple WebRTC based walkie talkie app(-ish).
   <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/2065974b-ca8a-44c2-9b79-163ee7ab07fa">
 </p>
 
+* `sudo docker build -t walkie-talkie-server .`
+* `sudo docker run -p 4002:4002 walkie-talkie-server`
+
 ### TODO: write info
 
 - [ ] Connect to server with a nickname

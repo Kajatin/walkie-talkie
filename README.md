@@ -7,6 +7,8 @@ A simple WebRTC based walkie talkie app(-ish).
 
 * `sudo docker build -t walkie-talkie-server .`
 * `sudo docker run -p 4002:4002 walkie-talkie-server`
+* `sudo docker build -t walkie-talkie-client .`
+* `sudo docker run -p 3001:3001 walkie-talkie-client`
 
 ### TODO: write info
 

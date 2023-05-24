@@ -9,7 +9,7 @@ export default function Header(props: {
   return (
     <div className="flex flex-col gap-2 justify-center items-center">
       <div className="flex flex-row gap-1 items-baseline hover:scale-110 transition-all">
-        <div className="text-3xl text-indigo-500">Walkie Talkie</div>
+        <div className="text-3xl text-retro-pink">Walkie Talkie</div>
         <Image
           src="/walkie-talkie.png"
           width={40}
@@ -22,18 +22,20 @@ export default function Header(props: {
       <div className="flex flex-row gap-2 items-center">
         <div
           className={
-            "w-4 h-4 rounded-full " +
-            (connected ? "bg-green-500" : "bg-red-500")
+            "w-4 h-4 rounded-full border-b-2 border-r-2 border-zinc-600 " +
+            (connected ? "bg-retro-yellow" : "bg-retro-pink")
           }
         ></div>
 
         {connected ? (
           <>
-            <div className="text-xl text-zinc-400">Connected</div>
-            <div className="text-base text-zinc-500">[#{connectionId}]</div>
+            <div className="text-xl">Connected</div>
+            <div className="text-base text-zinc-500 text-opacity-80">
+              [#{connectionId}]
+            </div>
           </>
         ) : (
-          <div className="text-xl text-zinc-400">Disconnected</div>
+          <div className="text-xl">Disconnected</div>
         )}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Client } from "./types";
 
@@ -46,6 +46,7 @@ export default function Connect(props: {
       setClients([]);
       setConnected(false);
       setConnectionId(null);
+      setOfferDescription(null);
     });
 
     socketRef.current.addEventListener("message", async function (event) {
@@ -120,6 +121,20 @@ export default function Connect(props: {
     });
   };
 
+  useEffect(() => {
+    const handleEnter = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        if (!nickname) return;
+
+        connectToServer();
+      }
+    };
+    window.addEventListener("keydown", handleEnter);
+    return () => {
+      window.removeEventListener("keydown", handleEnter);
+    };
+  }, [nickname]);
+
   return (
     <div className="flex flex-col gap-4 mt-12 w-[80%] lg:w-[40%]">
       <input
@@ -127,16 +142,13 @@ export default function Connect(props: {
         value={nickname}
         onChange={(e) => setNickname(e.target.value)}
         placeholder="Nickname"
-        className="text-xl text-zinc-200 rounded-xl px-3 py-2 bg-zinc-500 bg-opacity-40 outline-none focus:ring-2 focus:ring-indigo-300"
+        className="text-xl rounded-xl px-3 py-2 bg-zinc-100 bg-opacity-70 outline-none focus:ring-2 focus:ring-retro-yellow"
       />
 
       <button
         onClick={connectToServer}
         disabled={nickname.length === 0}
-        className={
-          "text-xl text-zinc-100 rounded-full px-3 py-2 bg-indigo-600 transition-all " +
-          (nickname.length === 0 ? "" : "hover:scale-110")
-        }
+        className="text-xl text-zinc-100 rounded-full px-3 py-2 bg-retro-pink transition-all hover:scale-110"
       >
         Connect
       </button>

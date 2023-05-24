@@ -109,11 +109,9 @@ export default function Peers(props: {
       <audio ref={audioRef} autoPlay />
 
       {clients.length === 1 ? (
-        <div className="text-lg text-zinc-400">
-          No one else is online right now
-        </div>
+        <div className="text-lg">No one else is online right now</div>
       ) : (
-        <div className="flex flex-row gap-1 overflow-x-scroll overflow-y-hidden no-scrollbar w-3/4 lg:w-1/2">
+        <div className="flex flex-row gap-1.5 p-2 overflow-x-scroll overflow-y-hidden no-scrollbar w-3/4 lg:w-1/2">
           {clients.map((client) => {
             if (client.id === connectionId) return null;
 
@@ -121,12 +119,10 @@ export default function Peers(props: {
               <div
                 key={client.id}
                 className={
-                  "text-zinc-200 rounded-full px-3 py-2 text-lg bg-opacity-40 transition-all cursor-pointer " +
+                  "rounded-full px-3 py-2 text-lg transition-all cursor-pointer hover:scale-110 " +
                   (client.id === selectedClient?.id
-                    ? "bg-blue-500"
-                    : client.id === connectionId
-                    ? "bg-zinc-500"
-                    : "bg-zinc-500 hover:bg-opacity-60")
+                    ? "bg-retro-pink text-zinc-100"
+                    : "bg-retro-yellow")
                 }
                 onClick={async () => {
                   if (client.id === connectionId) return;
@@ -148,18 +144,18 @@ export default function Peers(props: {
       )}
 
       {offerDescription && (
-        <div className="flex flex-col mt-10 mb-6 gap-2 items-center justify-center text-xl text-zinc-100">
+        <div className="flex flex-col mt-10 mb-6 gap-2 items-center justify-center text-xl">
           <div className="flex flex-row gap-3">
-            <div className="animate-bounce text-indigo-500 text-2xl font-medium">
+            <div className="animate-bounce text-retro-pink text-2xl font-medium">
               {clients.find((client) => client.id === offerDescription.from)
                 ?.nickname || "anonymous"}
             </div>
-            <div className="text-zinc-200">wants to connect</div>
+            <div className="">wants to connect</div>
           </div>
 
           <div className="flex flex-row gap-3">
             <button
-              className="rounded-full px-3 py-2 bg-indigo-500 transition-all hover:scale-110"
+              className="rounded-full px-3 py-2 bg-retro-pink transition-all hover:scale-110 text-zinc-100"
               onClick={async () => {
                 const remoteDesc = new RTCSessionDescription(
                   offerDescription.offer
@@ -179,7 +175,7 @@ export default function Peers(props: {
             </button>
 
             <button
-              className="rounded-full px-3 py-2 bg-zinc-500 bg-opacity-40 transition-all hover:scale-110"
+              className="rounded-full px-3 py-2 bg-zinc-500 transition-all hover:scale-110 text-zinc-100"
               onClick={async () => {}}
             >
               Decline
@@ -192,8 +188,8 @@ export default function Peers(props: {
         className={
           "w-fit text-4xl font-bold p-8 rounded-full uppercase my-10 transition-all " +
           (talking
-            ? "animate-pulse bg-amber-600 scale-110"
-            : "bg-indigo-600 hover:scale-110")
+            ? "bg-retro-yellow scale-110"
+            : "bg-retro-pink hover:scale-110 text-zinc-100")
         }
         onClick={() => {
           if (!talking) {
@@ -203,7 +199,14 @@ export default function Peers(props: {
           }
         }}
       >
-        <span className="material-symbols-outlined mt-2 scale-125">mic</span>
+        <span
+          className={
+            "material-symbols-outlined mt-2 scale-125 transition-all " +
+            (talking ? "animate-pulse" : "")
+          }
+        >
+          {talking ? "graphic_eq" : "mic"}
+        </span>
       </button> */}
     </div>
   );

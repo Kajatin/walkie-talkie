@@ -79,16 +79,18 @@ wss.on("connection", (ws) => {
           JSON.stringify({
             onConnect: {
               id: connId,
-              clients: Object.keys(clients).map((clientConnId) => ({
-                id: clientConnId,
-                nickname: clients[clientConnId].nickname,
-              })),
+              clients: Object.keys(clients)
+                .filter((clientConnId) => clients[clientConnId].nickname)
+                .map((clientConnId) => ({
+                  id: clientConnId,
+                  nickname: clients[clientConnId].nickname,
+                })),
             },
           })
         );
       }
 
-      if (data.offer || data.answer || data.revoke) {
+      if (data.offer || data.answer || data.revoke || data.walkieTalkieOffer) {
         sendTo(data.peer, msg);
       }
 

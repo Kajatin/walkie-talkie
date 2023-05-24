@@ -17,5 +17,5 @@ A simple WebRTC based walkie talkie app(-ish).
 - [ ] Allow multiple peers to connect and talk
 - [ ] Disable talk option if someone else is talking
 - [ ] Speech-to-text and text-to-speech
-* [ ] Chat groups
-* [ ] Disconnect button
+- [ ] Chat groups
+- [ ] Disconnect button

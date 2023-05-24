@@ -29,3 +29,11 @@ body {
     'opsz' 48;
   font-size: xx-large;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}

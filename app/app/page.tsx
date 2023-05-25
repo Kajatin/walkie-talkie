@@ -242,6 +242,14 @@ export default function WalkieTalkie() {
               socketRef={socketRef}
               connectionId={connectionId}
             />
+            <button
+              className="mt-6 hover:scale-110"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Disconnect
+            </button>
           </>
         ) : (
           <Connect

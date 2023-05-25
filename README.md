@@ -2,7 +2,7 @@
 A simple WebRTC based walkie talkie app(-ish).
 
 <p align="center">
-  <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/2065974b-ca8a-44c2-9b79-163ee7ab07fa">
+  <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/f7f55b61-ff0a-4870-af6b-1d75788b6ae5">
 </p>
 
 This project is inspired by the walkie-talkie app on the Apple Watch. It is by no means
@@ -27,7 +27,7 @@ connection between clients.
 
 ## Deployment
 
-The app is deployed on my home server using my own domain. [Check it out here](https://walkie-talkie.kajatin.xyz).
+The app is deployed on my home server using my own domain. [Check it out here](https://walkie.rolandkajatin.com).
 It is served securely with the help of a [Let's Encrypt](https://letsencrypt.org/)
 provided certificate managed and set up with [Certbot](https://certbot.eff.org/).
 The app is then exposed through an [NGINX](https://www.nginx.com/) reverse proxy.
@@ -64,3 +64,11 @@ and can be run separately. The server is exposed on port 4002 and the client on 
 * [ ] Secure who can connect to the server
 
 ## Screenshots
+
+<p align="center">
+  <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/1e0dc68f-b566-4d11-a773-1d01ab08d7aa">
+</p>
+
+<p align="center">
+  <img width="800" src="https://github.com/Kajatin/walkie-talkie/assets/33018844/2f59838a-6c43-404c-90a3-58d46be567c6">
+</p>
